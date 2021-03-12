@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'order',
     loadChildren: () => import('./order/order.module').then( m => m.OrderPageModule)
   },
+  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+  },
 
 ];
 
