@@ -1,0 +1,7 @@
+{
+  "name": "walido",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
