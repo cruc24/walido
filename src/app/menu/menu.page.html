@@ -13,6 +13,9 @@
       <ion-col size="8" offset="2">
         <ion-row *ngFor="let piatto of menu">
         <ion-col size="9">
+          <ion-avatar>
+            <ion-img [src]="piatto.imageUrl"></ion-img>
+          </ion-avatar>
           <h2>{{piatto.nome}}</h2>
           <h6>{{piatto.ingredienti}}</h6>
         </ion-col>
