@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>menu</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-back-button defaultHref="./home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +11,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="8" offset="2">
-        <ion-row *ngFor="let piatto of menu">
+        <ion-item *ngFor="let piatto of menu" (click)="addToMenu(piatto)">
         <ion-col size="9">
           <ion-avatar>
             <ion-img [src]="piatto.imageUrl"></ion-img>
@@ -22,8 +22,32 @@
         <ion-col size="3">
           <h2>{{piatto.prezzo | currency}}</h2>
         </ion-col>
-        </ion-row>
+        </ion-item>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-thumbnail>
+          <img src="https://th.bing.com/th/id/OIP.7zLsKM5Jy6wfGmZRnKe1AQHaIL?w=179&h=198&c=7&o=5&pid=1.7">
+        </ion-thumbnail>
+        Antipasti
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" offset="6"> Pizza </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6"> Panini&Piadine </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" offset="6"> Cucina Araba </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6"> Bevande </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
 </ion-content>

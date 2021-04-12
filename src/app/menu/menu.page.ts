@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Piatto } from '../models/piatto.model';
+import { OrderService } from '../order/order.service';
 import { MenuService } from './menu.service';
 
 @Component({
@@ -9,11 +11,18 @@ import { MenuService } from './menu.service';
 })
 export class MenuPage implements OnInit {
 
-  menu: Piatto[] = [];
-  constructor(private menuService: MenuService) {}
+  menu: Piatto[];
+  constructor(private menuService: MenuService, private orderService: OrderService) {}
 
   ngOnInit() {
-    this.menu = this.menuService.menu;
-    console.log(this.menu);
+    // this.menu = this.menuService.menu;
+    this.menuService.getMenu().subscribe((data) =>{
+      this.menu = data;
+      console.log(this.menu);
+    });
+  }
+
+  addToMenu(piatto : Piatto){
+    this.orderService.add(piatto);
   }
 }
