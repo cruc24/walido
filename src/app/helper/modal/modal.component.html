@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-6" style="margin-left : 30px;">
+      <h1 for="ingredients">Scegli i tuoi ingredienti:</h1>
+      <p *ngFor="let ingredient of piatto.ingredienti; index as i">
+        <input type="checkbox" id="{{ingredient}}" name="{{ingredient}}" value="{{ingredient}}">
+        <label for="{{ingredient}}"> {{ingredient}}</label><br>
+      </p>
+      <hr>
+    </div>
+    </div>
+  </div>
+
+
+
