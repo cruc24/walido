@@ -27,18 +27,13 @@ export class MenuPage implements OnInit {
     });
   }
 
-  addToMenu(piatto: Piatto) {
-    this.orderService.add(piatto);
-  }
-
   modifyIngredients(piatto: Piatto) {
     this.modalController.create({
       component: ModalComponent,
       componentProps: { piatto: piatto }
     }).then(elem => {
       elem.present();
-      setTimeout(() => console.log("aspetta"), 200);
-      elem.dismiss();
+      return elem.onDidDismiss();
     });
 }
 
