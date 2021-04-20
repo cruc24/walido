@@ -13,11 +13,11 @@
       <ion-col size="8" offset="2">
         <ion-item *ngFor="let piatto of ord">
         <ion-col size="9">
-          <h2>{{piatto.nome}}</h2>
-          <p>{{piatto.ingredienti}}</p>
+          <h2>{{piatto.name}}</h2>
+          <p>{{piatto.ingredients}}</p>
         </ion-col>
         <ion-col size="3">
-          <h2>{{piatto.prezzo | currency}}</h2>
+          <h2>{{piatto.price | currency}}</h2>
         </ion-col>
         <ion-button slot="end" color="danger" fill="clear" (click)="removeFromOrder(piatto)">
           <ion-icon name="close-outline"></ion-icon>

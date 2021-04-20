@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <div class="col-md-6" style="margin-left : 30px;">
       <h1 for="ingredients">Scegli i tuoi ingredienti:</h1>
-      <p *ngFor="let ingredient of ingredienti; index as i">
+      <p *ngFor="let ingredient of ingredients; index as i">
         <input type="checkbox" id="{{ingredient}}" [checked]="searchIngredient(ingredient)" value="{{ingredient}}"
           (change)="onChangeCategory($event, ingredient)">
         <label for="{{ingredient}}"> {{ingredient}}</label><br>

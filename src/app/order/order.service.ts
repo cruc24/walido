@@ -22,19 +22,19 @@ export class OrderService {
     return this.order.pipe(
       take(1),
       map(dishes => {
-        return { ...dishes.find(dish => dish.nome === piatto.nome)};
+        return { ...dishes.find(dish => dish.name === piatto.name)};
       }));
   }
 
 
   add(piatto : Piatto){
-    this.tot += piatto.prezzo;
+    this.tot += piatto.price;
     this.order.next([...this.order.getValue(),piatto]);
   }
 
   remove(piatto:Piatto){
-    this.tot -= piatto.prezzo;
-    this.order.next(this.order.getValue().filter(elem=>elem.nome !== piatto.nome));
+    this.tot -= piatto.price;
+    this.order.next(this.order.getValue().filter(elem=>elem.name !== piatto.name));
   }
 
 

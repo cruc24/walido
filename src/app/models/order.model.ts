@@ -17,6 +17,6 @@ export class Order implements iOrder {
     public amount : number;
     public user : string;
 
-    constructor(nome:string,list:Piatto[],amount:number,user:string){}
+    constructor(id:string,list:Piatto[],amount:number,user:string){}
 
 }

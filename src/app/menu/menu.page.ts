@@ -18,13 +18,14 @@ export class MenuPage implements OnInit {
     private menuService: MenuService,
     private orderService: OrderService,
     private modalController: ModalController) { }
-
+    res;
   ngOnInit() {
     // this.menu = this.menuService.menu;
     this.menuService.getMenu().subscribe((data) => {
-      this.menu = data;
-      console.log(this.menu);
+      console.log("menu page", data);
+      this.res = data;
     });
+    console.log("init page", this.res)
   }
 
   modifyIngredients(piatto: Piatto) {

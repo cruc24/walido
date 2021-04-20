@@ -16,11 +16,11 @@
           <ion-avatar>
             <ion-img [src]="piatto.imageUrl"></ion-img>
           </ion-avatar>
-          <h2>{{piatto.nome}}</h2>
-          <h6>{{piatto.ingredienti}}</h6>
+          <h2>{{piatto.name}}</h2>
+          <h6>{{piatto.ingredients}}</h6>
         </ion-col>
         <ion-col size="3">
-          <h2>{{piatto.prezzo | currency}}</h2>
+          <h2>{{piatto.price | currency}}</h2>
           <ion-buttons>
             <ion-button (click)="modifyIngredients(piatto)"><ion-icon name="pencil-outline"></ion-icon></ion-button>
           </ion-buttons>
