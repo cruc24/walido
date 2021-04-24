@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Piatto } from '../models/piatto.model';
+import { Menu } from '../models/menu.model';
 import { OrderService } from '../order/order.service';
 import { MenuService } from './menu.service';
 import { ModalController } from '@ionic/angular';
@@ -18,14 +19,12 @@ export class MenuPage implements OnInit {
     private menuService: MenuService,
     private orderService: OrderService,
     private modalController: ModalController) { }
-    res;
   ngOnInit() {
     // this.menu = this.menuService.menu;
-    this.menuService.getMenu().subscribe((data) => {
-      console.log("menu page", data);
-      this.res = data;
+    this.menuService.getMenu().subscribe((res: Menu) => {
+      console.log("menu page",res);
+      if (res.foods) this.menu = res.foods;
     });
-    console.log("init page", this.res)
   }
 
   modifyIngredients(piatto: Piatto) {

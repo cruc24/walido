@@ -1,7 +1,8 @@
-import { HttpBackend, HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { take, map } from 'rxjs/operators';
+import { BehaviorSubject, throwError } from 'rxjs';
+import { take, map, retry, catchError } from 'rxjs/operators';
+
 import { Piatto } from '../models/piatto.model';
 
 @Injectable({
@@ -9,13 +10,30 @@ import { Piatto } from '../models/piatto.model';
 })
 export class MenuService {
   constructor(private http : HttpClient) {}
+  private baseUri: string = '/deliveroo';
+  private headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   menu: BehaviorSubject<Piatto[]> = new BehaviorSubject<Piatto[]> ([]);
 
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Unknown error!';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side errors
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // Server-side errors
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+  }
+
   getMenu(){
     
-    return this.http.jsonp(
-      "http://localhost:4000/deliveroo/menu", 'callback'
+    return this.http.get(
+      `${this.baseUri}/menu`, { headers: this.headers }
+    ).pipe(
+      catchError(this.handleError) // then handle the error
     );
 
     // menu.toPromise().then(res => {
