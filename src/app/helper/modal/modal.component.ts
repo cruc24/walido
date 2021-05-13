@@ -25,15 +25,17 @@ export class ModalComponent implements OnInit {
   piatto: Piatto;
   ingredienti = lista_ingredienti;
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   addToMenu() {
     this.modalCtrl.dismiss();
     this.router.navigateByUrl("./home/tabs/menu");
     this.orderService.add(this.piatto);
   }
+
+  closeModal(){
+    this.modalCtrl.dismiss();
+    }
 
   // TO DO: creare una lista di tutti gli ingredienti possibili così da fare checkare quelli che sono del piatto scelto
   onChangeCategory(event, cat: string) {
