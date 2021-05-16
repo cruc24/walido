@@ -5,13 +5,22 @@ import { HomePage } from './home.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'tabs'
+    redirectTo: 'tabs',
+    pathMatch: 'full'
   },
   {
     path:'tabs',
     component: HomePage,
     children:
     [
+      {
+        path: '',
+        redirectTo: 'intro'
+      },
+      {
+          path: 'intro',
+          loadChildren: () => import('../intro/intro.module').then( m => m.IntroPageModule)
+      },
       {
         path: 'order',
     loadChildren: () => import('../order/order.module').then( m => m.OrderPageModule)
