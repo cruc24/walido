@@ -6,6 +6,7 @@ import { OrderService } from '../order/order.service';
 import { MenuService } from './menu.service';
 import { ModalController } from '@ionic/angular';
 import { ModalComponent } from '../helper/modal/modal.component';
+import { Drink } from '../models/drink.model';
 
 @Component({
   selector: 'app-menu',
@@ -14,7 +15,8 @@ import { ModalComponent } from '../helper/modal/modal.component';
 })
 export class MenuPage implements OnInit {
 
-  menu: Piatto[];
+  foods: Piatto[];
+  drinks: Drink[];
   constructor(
     private menuService: MenuService,
     private orderService: OrderService,
@@ -23,7 +25,12 @@ export class MenuPage implements OnInit {
     // this.menu = this.menuService.menu;
     this.menuService.getMenu().subscribe((res: Menu) => {
       console.log("menu page",res);
-      if (res.foods) this.menu = res.foods;
+      if (res.foods) {
+        this.foods = res.foods;
+      }
+      if (res.drinks) {
+        this.drinks = res.drinks;
+      }
     });
   }
 

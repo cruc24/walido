@@ -1,7 +1,7 @@
 interface iDrink {
 
   name : string;
-  ingredients : string[] | null;
+  ingredients : string | null;
   category : string | null;
   description : string | null;
   price : number;
@@ -13,7 +13,7 @@ interface iDrink {
 export class Drink implements iDrink {
 
   public name : string;
-  public ingredients : string[] | null;
+  public ingredients : string | null;
   public category : string | null;
   public description : string | null;
   public price : number;
@@ -21,6 +21,6 @@ export class Drink implements iDrink {
   public available : boolean;
   public alcholic : boolean;
 
-  constructor(name:string,ingredients:string[],category:string,description:string,price:number,imageUrl:string,available:boolean,alcholic:boolean){}
+  constructor(name:string,ingredients:string,category:string,description:string,price:number,imageUrl:string,available:boolean,alcholic:boolean){}
 
 }
