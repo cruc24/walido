@@ -1,0 +1,34 @@
+.pizza-card {
+  --background: url(../../assets/images/pizza.jpg) 0 0/100% 100% no-repeat;
+}
+.starter-card {
+  --background: url(../../assets/images/starter.jpeg) 0 0/100% 100% no-repeat;
+}
+.arabic-card {
+  --background: url(../../assets/images/cucina-araba.jpeg) 0 0/100% 100% no-repeat;
+}
+.drinks-card {
+  --background: url(../../assets/images/drinks.jpeg) 0 0/100% 100% no-repeat;
+}
+
+ion-card > ion-grid > ion-row > ion-col {
+  @media (min-width:961px) {
+    min-height: 250px;
+    padding: 2px;
+  }
+  min-height: 150px;
+  padding: 0;
+}
+ion-grid {
+  padding: 0;
+}
+.intro-content {
+  --ion-background-color: #ffcc00;
+}
+
+ion-card {
+  --ion-background-color: #ffffff;
+}
+// ion-card {
+//   min-height: 250px;
+// }
