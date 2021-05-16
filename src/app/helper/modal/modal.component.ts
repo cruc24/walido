@@ -29,30 +29,29 @@ export class ModalComponent implements OnInit {
 
   addToMenu() {
     this.modalCtrl.dismiss();
-    this.router.navigateByUrl("./home/tabs/menu");
     this.orderService.add(this.piatto);
   }
 
   closeModal(){
     this.modalCtrl.dismiss();
-    }
+  }
 
   // TO DO: creare una lista di tutti gli ingredienti possibili così da fare checkare quelli che sono del piatto scelto
   onChangeCategory(event, cat: string) {
     if (event.target.checked) {
-      if (!this.piatto.ingredients.find(elem => elem === cat)) {
-        this.piatto.ingredients.push(cat);
+      if (!this.piatto.ingredients.split(',').find(elem => elem === cat)) {
+        this.piatto.ingredients.split(',').push(cat);
       }
     }
     if (!event.target.checked) {
-      if (this.piatto.ingredients.find(elem => elem === cat)) {
-        this.piatto.ingredients = this.piatto.ingredients.filter(elem => elem !== cat);
+      if (this.piatto.ingredients.split(',').find(elem => elem === cat)) {
+        this.piatto.ingredients = this.piatto.ingredients.split(',').filter(elem => elem !== cat).join(',');
       }
     }
   }
 
   searchIngredient(ingrediente: string): Boolean {
-    return this.piatto.ingredients.findIndex(elem => elem === ingrediente) !== -1;
+    return this.piatto.ingredients.split(',').findIndex(elem => elem === ingrediente) !== -1;
   }
 
 }
