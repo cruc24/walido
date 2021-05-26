@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  stripe_key: 'publishebla_stripe_key',
+  stripe_checkout_src: 'https://checkout.stripe.com/checkout.js'
 };
 
 export const lista_ingredienti = [
