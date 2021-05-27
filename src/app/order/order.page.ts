@@ -12,6 +12,7 @@ export class OrderPage implements OnInit {
 
   ord: Piatto[] = [];
   tot: number = 0;
+  showInfo = false;
 
   ngOnInit() {
     this.orderService.order.subscribe((data) => {

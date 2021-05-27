@@ -23,18 +23,20 @@ export class MenuPage implements OnInit {
     // this.menu = this.menuService.menu;
     this.menuService.getMenu().subscribe((data) => {
       this.menu = data;
-      console.log(this.menu);
     });
   }
 
   modifyIngredients(piatto: Piatto) {
     this.modalController.create({
       component: ModalComponent,
-      componentProps: { piatto: piatto }
+      componentProps: { piatto }
     }).then(elem => {
       elem.present();
-      return elem.onDidDismiss();
     });
-}
+  }
+
+  addToOrder(piatto: Piatto){
+    this.orderService.add(piatto);
+  }
 
 }

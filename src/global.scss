@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,20 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-tab-bar,
+ion-tab-button,
+ion-header,
+ion-toolbar.toolbar-background {
+  --ion-background-color: saddlebrown;
+  --ion-text-color: white;
+  color: white;
+}
+
+ion-content {
+  --ion-background-color: rgb(250, 187, 12);
+}
+
+ion-card {
+  --ion-background-color: white;
+}
