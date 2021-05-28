@@ -28,13 +28,15 @@ const routes: Routes = [
       //   loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
       // }
     ]
-  },  {
+  },
+  {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
-
-
-
+{
+  path: 'add',
+  loadChildren: () => import('./admin/insert/insert.module').then( m => m.InsertPageModule)
+}
 ];
 
 @NgModule({
