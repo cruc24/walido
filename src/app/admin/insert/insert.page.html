@@ -1,12 +1,29 @@
 <ion-content>
-<form>
-    <ion-label>Nome del piatto</ion-label>
-    <ion-input ></ion-input>
-    <ion-label>Ingredienti:</ion-label>
-    <ion-select multiple="true" ></ion-select>
-    <ion-label>Prezzo</ion-label>
-    <ion-input ></ion-input>
-    <ion-label>Image-Url</ion-label>
-    <ion-input ></ion-input>
-</form>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Inserisci un nuovo piatto
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position='floating'>Nome del piatto</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position='floating'>Ingredienti:</ion-label>
+        <ion-select multiple="true">
+          <ion-select-option *ngFor="let item of ingredienti" [value]="item">{{item}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position='floating'>Prezzo</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+     <ion-item>
+      <ion-label position='floating'>Image-Url</ion-label>
+      <ion-input></ion-input>
+     </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

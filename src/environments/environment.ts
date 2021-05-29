@@ -8,7 +8,7 @@ export const environment = {
 
 export const lista_ingredienti = [
   'pomodoro', 'mozzarella', 'origano', 'olio','patatine fritte','patate a forno', 'melenzane','zucchine','grana','salame piccante'
-]
+];
 
 /*
  * For easier debugging in development mode, you can import the following file
