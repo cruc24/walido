@@ -1,15 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>  Inserisci un nuovo piatto</ion-title>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/admin"></ion-back-button>
-      </ion-buttons>
-  </ion-toolbar>
-</ion-header>
 <ion-content>
   <ion-card>
+    <ion-card-header>
+      <ion-card-title [(ngModel)]="title" >{{piatto.nome === '' ? 'Inserisci un nuovo piatto' : 'Modifica piatto'}}</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
-
       <form>
         <ion-item>
           <ion-label for="nome" position='floating'>Nome del piatto</ion-label>
@@ -30,11 +24,11 @@
           <ion-label for="image" position='floating'>Image-Url</ion-label>
           <ion-input [(ngModel)]="piatto.imageUrl" ngDefaultControl name="image" id="image" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
+        <ion-buttons slot="end">
+          <ion-button fill="clear" (click)="newPiatto()">{{title === 'Inserisci un nuovo piatto'? 'Aggiungi' : 'Modifica'}}</ion-button>
+          <ion-button fill="clear" (click)="close()">Annulla</ion-button>
+        </ion-buttons>
       </form>
     </ion-card-content>
   </ion-card>
-    <p>{{piatto.nome}}</p>
-    <p>{{piatto.ingredienti}}</p>
-    <p>{{piatto.prezzo}}</p>
-    <p>{{piatto.imageUrl}}</p>
 </ion-content>

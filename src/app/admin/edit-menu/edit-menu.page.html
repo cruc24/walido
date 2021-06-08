@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>  Modifica Menù</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/admin"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="openModal()"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card *ngFor="let piatto of menu">
+          <ion-card-header>
+            <ion-card-title><h1>{{piatto.nome | titlecase}}</h1></ion-card-title>
+            <!-- <ion-avatar> <ion-img [src]="piatto.imageUrl"></ion-img></ion-avatar> -->
+          </ion-card-header>
+          <ion-card-content>
+              <ion-item>
+                {{piatto.ingredienti}}
+              </ion-item>
+              <ion-item lines="none">
+                <h1>{{piatto.prezzo | currency}}</h1>
+                <ion-buttons slot="end">
+                  <ion-button (click)="removePiatto(piatto)">
+                    <ion-icon name="remove-outline" color="dark"></ion-icon>
+                  </ion-button>
+                  <ion-button (click)="openModal(piatto)">
+                    <ion-icon name="pencil-outline" color="dark"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+              </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

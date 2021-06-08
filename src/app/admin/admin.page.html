@@ -7,12 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <ion-list style="padding-inline: 20%;
-  padding-block: 25px;" >
-    <ion-item><ion-button (click)="redirect()">
-      Aggiungi un nuovo piatto
-     </ion-button></ion-item>
+  padding-block: 25px;">
+    <ion-item>
+      <ion-button (click)="redirect('edit-menu')">
+        Modifica il Menù
+      </ion-button>
+    </ion-item>
   </ion-list>
-<router-outlet></router-outlet>
 </ion-content>

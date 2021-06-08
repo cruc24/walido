@@ -15,6 +15,6 @@ import { InsertPage } from './insert.page';
     IonicModule,
     InsertPageRoutingModule
   ],
-  declarations: [InsertPage]
+  declarations: []
 })
 export class InsertPageModule {}

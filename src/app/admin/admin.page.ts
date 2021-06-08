@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { InsertPage } from '../helper/insert/insert.page';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +15,9 @@ export class AdminPage implements OnInit {
   ngOnInit() {
   }
 
-  redirect(){
-    this.router.navigateByUrl('/admin/add');
+  redirect(page: string){
+    this.router.navigateByUrl('/admin/' + page);
   }
+
+
 }

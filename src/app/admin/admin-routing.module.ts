@@ -9,9 +9,9 @@ const routes: Routes = [
     component: AdminPage
   },
   {
-    path: 'add',
-    loadChildren: () => import('./insert/insert.module').then( m => m.InsertPageModule)
-  }
+    path: 'edit-menu',
+    loadChildren: () => import('./edit-menu/edit-menu.module').then( m => m.EditMenuPageModule)
+  },
 ];
 
 @NgModule({
