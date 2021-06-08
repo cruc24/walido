@@ -9,7 +9,7 @@ const routes: Routes = [
     component: AdminPage
   },
   {
-    path: 'insert',
+    path: 'add',
     loadChildren: () => import('./insert/insert.module').then( m => m.InsertPageModule)
   }
 ];

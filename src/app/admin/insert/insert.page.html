@@ -1,35 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>  Inserisci un nuovo piatto</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/admin"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-        Inserisci un nuovo piatto
-      </ion-card-title>
-    </ion-card-header>
     <ion-card-content>
-      <ion-item>
-        <ion-label position='floating'>Nome del piatto</ion-label>
-        <ion-input [(ngModel)]="piatto.nome"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position='floating'>Ingredienti:</ion-label>
-        <ion-select multiple="true">
-          <ion-select-option *ngFor="let item of ingredienti" [value]="item" [(ngModel)]="piatto.ingredienti">{{item}} </ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label position='floating'>Prezzo</ion-label>
-        <ion-input [(ngModel)]="piatto.prezzo"></ion-input>
-      </ion-item>
-     <ion-item>
-      <ion-label position='floating'>Image-Url</ion-label>
-      <ion-input [(ngModel)]="piatto.imageUrl"></ion-input>
-     </ion-item>
+
+      <form>
+        <ion-item>
+          <ion-label for="nome" position='floating'>Nome del piatto</ion-label>
+          <ion-input name="nome" id="nome" [(ngModel)]="piatto.nome" [ngModelOptions]="{standalone: true}" ngDefaultControl></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label for="ingredienti" position='floating'>Ingredienti:</ion-label>
+          <ion-select multiple="true" name="ingredienti" id="ingredienti" ngDefaultControl [(ngModel)]="piatto.ingredienti" [ngModelOptions]="{standalone: true}">
+            <ion-select-option *ngFor="let item of ingredienti" [value]="item" >
+              {{item}} </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label for="prezzo" position='floating'>Prezzo</ion-label>
+          <ion-input [(ngModel)]="piatto.prezzo" ngDefaultControl name="prezzo" id="prezzo" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label for="image" position='floating'>Image-Url</ion-label>
+          <ion-input [(ngModel)]="piatto.imageUrl" ngDefaultControl name="image" id="image" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+      </form>
     </ion-card-content>
   </ion-card>
-  <div *ngIf="piatto">
     <p>{{piatto.nome}}</p>
     <p>{{piatto.ingredienti}}</p>
     <p>{{piatto.prezzo}}</p>
     <p>{{piatto.imageUrl}}</p>
-  </div>
 </ion-content>

@@ -33,10 +33,6 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
-{
-  path: 'add',
-  loadChildren: () => import('./admin/insert/insert.module').then( m => m.InsertPageModule)
-}
 ];
 
 @NgModule({
