@@ -8,22 +8,28 @@
     <ion-card-content>
       <ion-item>
         <ion-label position='floating'>Nome del piatto</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="piatto.nome"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position='floating'>Ingredienti:</ion-label>
         <ion-select multiple="true">
-          <ion-select-option *ngFor="let item of ingredienti" [value]="item">{{item}}</ion-select-option>
+          <ion-select-option *ngFor="let item of ingredienti" [value]="item" [(ngModel)]="piatto.ingredienti">{{item}} </ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label position='floating'>Prezzo</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="piatto.prezzo"></ion-input>
       </ion-item>
      <ion-item>
       <ion-label position='floating'>Image-Url</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="piatto.imageUrl"></ion-input>
      </ion-item>
     </ion-card-content>
   </ion-card>
+  <div *ngIf="piatto">
+    <p>{{piatto.nome}}</p>
+    <p>{{piatto.ingredienti}}</p>
+    <p>{{piatto.prezzo}}</p>
+    <p>{{piatto.imageUrl}}</p>
+  </div>
 </ion-content>
